@@ -1,0 +1,11 @@
+{
+  "name": "project01",
+  "version": "1.0.0",
+  "description": "Express Js Basic Learnings",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Israr Ahmad Tech",
+  "license": "ISC"
+}
