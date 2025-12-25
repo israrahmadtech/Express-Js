@@ -2,7 +2,7 @@ import express from "express"
 
 const app = express()
 
-app.use(express.json());
+app.use(express.json()); // The data coming in the client's request is in string form so we need to parse it - here it is done using middle ware
 
 app.get('/', (req, res) => {
     res.send("This is home page data")
@@ -13,7 +13,8 @@ let users = [
     { id: 2, name: "Ali", role: "Backend Dev" }
 ];
 
-// ...............  GET  .........................................
+
+// ...............  GET  ...................
 app.get("/users/:id", (req, res) => {
     const id = Number(req.params.id);
 
@@ -23,9 +24,11 @@ app.get("/users/:id", (req, res) => {
         return res.status(404).send({ message: "User not found" });
     }
 
+    console.log(express.json)
     res.send(user);
 });
-// ...............  POST  .........................................
+
+// ...............  POST  ..................
 app.post('/users', (req, res) => {
     const { name, role } = req.body;
     console.log(req.body);
@@ -35,14 +38,12 @@ app.post('/users', (req, res) => {
     if (user) { return res.status(409).json({ message: "User already exists!" }) }
 
     const newUser = { id: users.length + 1, name, role }
-    users?.push(newUser) // Bhai user push tho nhi hotha, ye kun?
+    users?.push(newUser)
 
     res.status(201).json(newUser);
 })
-app.listen(4000, () => {
-    console.log("Israr's server is continuously listening...");
-})
-// ...............  PATCH  .........................................
+
+// ...............  PATCH  ..................
 app.patch('/users/:id', (req, res) => {
     const id = +req.params.id
 
@@ -56,8 +57,11 @@ app.patch('/users/:id', (req, res) => {
 
     res.json(user)
 })
-// ...............  PUT  .........................................
+
+// ...............  PUT  ....................
 app.put('/users/:userId', (req, res) => {
+    console.log(req.params); // return an object having userId inside
+    
     const id = +req.params.userId
 
     const userIndex = users?.findIndex(u => u.id === id)
@@ -68,7 +72,8 @@ app.put('/users/:userId', (req, res) => {
 
     res.json(users[userIndex])
 })
-// ...............  DELETE  .........................................
+
+// ...............  DELETE  .................
 app.delete('/users/:id', (req, res) => {
     const id = +req.params.id
 
@@ -81,4 +86,9 @@ app.delete('/users/:id', (req, res) => {
     users = updatedUsers
 
     res.json({message: "User deleted successfully!"})
+})
+
+
+app.listen(4000, () => {
+    console.log("Israr's server is continuously listening...");
 })
