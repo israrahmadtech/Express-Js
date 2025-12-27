@@ -17,6 +17,8 @@ let users = [
 // ...............  GET  ...................
 app.get("/users/:id", (req, res) => {
     const id = Number(req.params.id);
+    console.log("PARAMS: ",typeof req.params);
+    
 
     const user = users.find(u => u.id === id);
 
