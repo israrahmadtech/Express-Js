@@ -58,43 +58,26 @@ payload me userId
 Token client ko
 
 🟢 3. Token Storage (Frontend)
-
 Token ko store karo (mentally):
-
 localStorage / variable
 
 🟢 4. Create Note (Protected)
-
 Flow:
-
 Client token bhejta
-
 Auth middleware:
-
 token verify
-
 req.user = { userId }
-
 Note create:
-
 userId = req.user.userId
-
 👉 Is step pe note owner lock ho jata hai
 
 🟢 5. Get Notes (Authorization)
-
 Flow:
-
 User request bhejta
-
 Server:
-
 sab notes me se
-
 sirf matching userId wali notes
-
 Response me sirf apni notes
-
 👉 Dusre user ki notes exist karti hain
 👉 Lekin response me kabhi nahi jati
 

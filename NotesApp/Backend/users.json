@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "name": "Israr Ahmad",
+    "email": "israr@khan.com",
+    "password": "$2b$10$3JltiAwKev07RiwtioxOUOwGo3uX60VRB4B5QS7yttYo2mdZI33b2",
+    "username": "israrahmad123",
+    "role": "user"
+  },
+  {
+    "id": 1,
+    "name": "Israr Ahmad",
+    "email": "israr@ahmad.com",
+    "password": "$2b$10$09eGHE2myo0a9E79bHsOQOG.uhG2azzaBvaIvzIAZQ26UtYeok7vG",
+    "username": "israrahmad123",
+    "role": "user"
+  },
+  {
+    "id": 2,
+    "name": "Israr Ahmad",
+    "email": "israr@afridi.com",
+    "password": "$2b$10$l0mFIUp.GySKxZH4rsAaGufZWwB9qxAkYWW7mn9LKMVE/9kRNjVMa",
+    "username": "israrahmad123",
+    "role": "user"
+  }
+]

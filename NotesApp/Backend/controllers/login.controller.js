@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken"
-import { users } from "../users.js"
 import bcrypt from "bcrypt"
 const jwt_secret_key = "my_super_secret_key_2026_notes_app"
+import { readUsers } from "./json.controller.js"
 
 // Login User
 export async function loginUser(req, res) {
@@ -13,6 +13,7 @@ export async function loginUser(req, res) {
     }
     
     // user exists or not
+    const users = readUsers()
     const existingUser = users?.find(u => u.email === user?.email)    
     // if not exist
     if(!existingUser){
