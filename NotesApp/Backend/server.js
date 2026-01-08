@@ -1,10 +1,16 @@
 const express = require('express')
+const cors = require("cors")
 const { registerRouter } = require('./routes/register.route.js')
 const { loginRouter } = require('./routes/login.route.js')
 const { usersRouter } = require('./routes/users.route.js')
 const { notesRouter } = require('./routes/notes.route.js')
 
 const app = express()
+
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}))
 
 app.use(express.json())
 // Register Route

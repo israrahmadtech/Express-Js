@@ -11,11 +11,10 @@ export async function registerUser(req, res) {
     }
     // if existss
     const users = readUsers()
-    console.log(users);
     
     const isExists = users?.find(u => u?.email === newUser?.email)
     if (isExists) {
-        return res.status(400).json({ isSuccess: false, message: "User already exists - please login!" })
+        return res.status(409).json({ isSuccess: false, message: "User already exists - please login!" })
     }
 
     // last user id
